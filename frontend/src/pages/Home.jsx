@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   FaArrowRight, FaCode, FaRocket, FaLaptopCode, FaCheckCircle, 
   FaGithub, FaLinkedin, FaFileDownload, FaBriefcase, FaGraduationCap, 
-  FaCertificate, FaStar, FaQuoteLeft, FaClock, FaShieldAlt 
+  FaCertificate, FaStar, FaQuoteLeft, FaClock, FaShieldAlt
 } from 'react-icons/fa'
 import { 
   SiReact, SiJavascript, SiTailwindcss, SiNodedotjs, 
@@ -14,6 +15,64 @@ import {
 } from '../data/portfolioData'
 import ProjectCard from '../components/ProjectCard'
 import FaqAccordion from '../components/FaqAccordion'
+
+/* Floating Doodle Icons matching the reference design */
+function CloudShieldDoodle({ className = '' }) {
+  return (
+    <div className={`pointer-events-none ${className}`}>
+      <svg className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#1e1b4b] dark:text-cyan-400 filter drop-shadow-md" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M19 46h26a11 11 0 0 0 4-21.2 14.5 14.5 0 0 0-28-4.3A9.5 9.5 0 0 0 19 46z" className="fill-white/95 dark:fill-slate-900/90" />
+        <path d="M32 23v14m-5.5-9.5c0 4.5 5.5 8 5.5 8s5.5-3.5 5.5-8v-3.5l-5.5-2-5.5 2v3.5z" strokeWidth="2.2" className="stroke-blue-600 dark:stroke-cyan-300 fill-blue-500/10" />
+        <path d="M29.5 29.5l2 2 3.5-3.5" strokeWidth="2" className="stroke-blue-600 dark:stroke-cyan-300" />
+      </svg>
+    </div>
+  )
+}
+
+function RocketDoodle({ className = '' }) {
+  return (
+    <div className={`pointer-events-none ${className}`}>
+      <svg className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#1e1b4b] dark:text-cyan-400 -rotate-12 filter drop-shadow-md" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M44 14c-7.5-7.5-21-5.5-27 0.5-3.5 3.5-5 9.5-5 15.5l5.5 5.5c6 0 12-1.5 15.5-5 6-6 8-19.5 1-26.5z" className="fill-white/95 dark:fill-slate-900/90" />
+        <circle cx="33" cy="23" r="3.5" className="fill-blue-500/20 stroke-blue-600 dark:stroke-cyan-300" strokeWidth="2" />
+        <path d="M17 31l-6 4 2 5.5 7.5-2" strokeWidth="2.2" />
+        <path d="M31 17l4-6 5.5 2-2 7.5" strokeWidth="2.2" />
+        <path d="M15 41l-4 6 6-4" strokeWidth="2.2" className="stroke-amber-500" />
+        <path d="M12 47l-3 4 4-2" strokeWidth="1.8" className="stroke-orange-500" />
+      </svg>
+    </div>
+  )
+}
+
+function AiLightbulbDoodle({ className = '' }) {
+  return (
+    <div className={`pointer-events-none ${className}`}>
+      <svg className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#1e1b4b] dark:text-cyan-400 filter drop-shadow-md" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 27c0-5.5 4.5-10 10-10s10 4.5 10 10c0 4-2 7-4.5 9v4h-11v-4c-2.5-2-4.5-5-4.5-9z" className="fill-white/95 dark:fill-slate-900/90" />
+        <path d="M27.5 44h9M28.5 48h7M30.5 52h3" strokeWidth="2.2" />
+        <text x="32" y="31" textAnchor="middle" fontSize="10" fontWeight="900" fill="currentColor" stroke="none" className="font-mono">AI</text>
+        <path d="M13 27h-4M51 27h4M32 9V5M19 14l-3-3M45 14l3-3" strokeWidth="2" className="stroke-blue-600 dark:stroke-cyan-300" />
+        <circle cx="8" cy="27" r="2" className="fill-blue-600 dark:fill-cyan-300 stroke-none" />
+        <circle cx="56" cy="27" r="2" className="fill-blue-600 dark:fill-cyan-300 stroke-none" />
+        <circle cx="32" cy="4" r="2" className="fill-blue-600 dark:fill-cyan-300 stroke-none" />
+        <circle cx="15" cy="10" r="1.8" className="fill-blue-600 dark:fill-cyan-300 stroke-none" />
+        <circle cx="49" cy="10" r="1.8" className="fill-blue-600 dark:fill-cyan-300 stroke-none" />
+      </svg>
+    </div>
+  )
+}
+
+function CodeSparkleDoodle({ className = '' }) {
+  return (
+    <div className={`pointer-events-none ${className}`}>
+      <svg className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#1e1b4b] dark:text-cyan-400 rotate-6 filter drop-shadow-md" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="14" y="16" width="36" height="32" rx="8" className="fill-white/95 dark:fill-slate-900/90" />
+        <path d="M25 28l-4 4 4 4M39 28l4 4-4 4M34 26l-4 12" strokeWidth="2.2" className="stroke-blue-600 dark:stroke-cyan-300" />
+        <path d="M50 16l1.5-3.5L55 11l-3.5-1.5L50 6l-1.5 3.5L45 11l3.5 1.5z" strokeWidth="1.8" className="stroke-amber-500 fill-amber-400/30" />
+      </svg>
+    </div>
+  )
+}
 
 const techBadges = [
   { name: 'React.js', icon: SiReact, color: 'text-cyan-600 dark:text-cyan-400', role: 'Frontend UI' },
@@ -28,61 +87,153 @@ const techBadges = [
 
 export default function Home() {
   const featuredProjects = projectsData.filter((p) => p.featured)
+  const [heroStyle, setHeroStyle] = useState('vision') // 'vision' = "YOUR VISION, MY PRIORITY", 'role' = "FULL STACK, WEB DEVELOPER"
+
+  const heroWords = heroStyle === 'vision' ? {
+    line1Left: 'YOUR',
+    line1Right: 'VISION,',
+    line2Left: 'MY',
+    line2Right: 'PRIORITY',
+  } : {
+    line1Left: 'FULL',
+    line1Right: 'STACK,',
+    line2Left: 'WEB',
+    line2Right: 'DEVELOPER',
+  }
 
   return (
     <div className="space-y-24 md:space-y-32 pt-28 pb-20 overflow-hidden">
       
-      {/* ----------------- HERO SECTION ----------------- */}
+      {/* ----------------- HERO SECTION (REFERENCE DESIGN) ----------------- */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Ambient background glows */}
-        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-cyan-500/15 to-blue-600/15 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        {/* Subtle Undulating Background Wave Curves */}
+        <svg 
+          className="absolute inset-0 w-full h-[600px] pointer-events-none -z-10 opacity-75 dark:opacity-25" 
+          viewBox="0 0 1440 600" 
+          fill="none" 
+          preserveAspectRatio="none"
+        >
+          <path d="M-60 140 C 320 280, 680 40, 1050 170 C 1240 230, 1380 120, 1500 150" stroke="currentColor" className="text-slate-300 dark:text-cyan-500/30" strokeWidth="2" />
+          <path d="M-60 280 C 260 170, 720 370, 1120 240 C 1280 190, 1420 300, 1500 270" stroke="currentColor" className="text-blue-300/70 dark:text-blue-500/30" strokeWidth="1.5" strokeDasharray="6 6" />
+          <path d="M-60 450 C 380 340, 780 520, 1180 400 C 1340 360, 1450 430, 1500 420" stroke="currentColor" className="text-slate-300/80 dark:text-cyan-400/25" strokeWidth="1.8" />
+        </svg>
 
-        <div className="text-center max-w-4xl mx-auto space-y-7 relative z-10">
+        {/* Ambient Center Glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[380px] bg-gradient-to-tr from-cyan-400/20 via-sky-300/15 to-blue-600/20 blur-[130px] rounded-full pointer-events-none -z-10"></div>
+
+        <div className="text-center max-w-6xl mx-auto space-y-8 relative z-10">
           
-          {/* Status Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-900/90 border border-cyan-500/30 backdrop-blur-md shadow-md shadow-cyan-500/5">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
-            </span>
-            <span className="text-xs font-mono font-medium text-cyan-700 dark:text-cyan-300">
-              {personalInfo.availability}
-            </span>
+          {/* Top Bar: Status Pill & Headline Mode Switcher */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 pt-2">
+            {/* Status Pill */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 dark:bg-slate-900/90 border border-cyan-500/30 backdrop-blur-md shadow-md shadow-cyan-500/5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+              </span>
+              <span className="text-xs font-mono font-medium text-cyan-700 dark:text-cyan-300">
+                {personalInfo.availability}
+              </span>
+            </div>
+
+            {/* Slogan Switcher */}
+            <div className="inline-flex items-center p-1 rounded-full bg-slate-200/80 dark:bg-slate-900/80 border border-slate-300/80 dark:border-slate-800 text-xs font-semibold backdrop-blur-md shadow-sm">
+              <button
+                type="button"
+                onClick={() => setHeroStyle('vision')}
+                className={`px-3 py-1 rounded-full transition-all duration-200 ${
+                  heroStyle === 'vision'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+                title="Slogan style matching reference"
+              >
+                Vision & Priority
+              </button>
+              <button
+                type="button"
+                onClick={() => setHeroStyle('role')}
+                className={`px-3 py-1 rounded-full transition-all duration-200 ${
+                  heroStyle === 'role'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+                title="Role title style"
+              >
+                Full-Stack Dev
+              </button>
+            </div>
           </div>
 
-          {/* Centered Hero Portrait - Large Cutout */}
-          <div className="relative mx-auto w-fit flex flex-col items-center pt-2">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-gradient-to-tr from-cyan-400/25 via-sky-300/20 to-blue-500/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+          {/* ================= HERO SHOWCASE: LAYERED TYPOGRAPHY + CUTOUT PORTRAIT ================= */}
+          <div className="relative w-full mx-auto min-h-[360px] sm:min-h-[440px] md:min-h-[500px] lg:min-h-[540px] flex items-center justify-center py-4 select-none">
+            
+            {/* Floating Outline Doodles */}
+            <CloudShieldDoodle className="absolute left-2 sm:left-4 md:left-8 lg:left-10 top-2 sm:top-4 md:top-6 animate-float-slow z-20" />
+            <RocketDoodle className="absolute left-2 sm:left-4 md:left-8 lg:left-10 bottom-8 sm:bottom-12 md:bottom-16 animate-float-delayed z-20" />
+            <AiLightbulbDoodle className="absolute right-2 sm:right-4 md:right-8 lg:right-10 top-2 sm:top-4 md:top-6 animate-float-reverse z-20" />
+            <CodeSparkleDoodle className="absolute right-2 sm:right-4 md:right-8 lg:right-10 bottom-8 sm:bottom-12 md:bottom-16 animate-float-slow z-20" />
 
-            <div className="relative group flex flex-col items-center">
+            {/* Ambient Studio Backlight Glow behind Hassan */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 md:w-[400px] h-64 sm:h-80 md:h-[400px] bg-gradient-to-tr from-cyan-400/25 via-sky-300/20 to-blue-600/25 rounded-full blur-3xl pointer-events-none z-10"></div>
+
+            {/* Giant Layered Backdrop Typography (Symmetric Two-Column Grid - 100% Readable) */}
+            <div className="relative z-10 w-full grid grid-cols-2 font-black tracking-tight leading-[0.92] uppercase">
+              
+              {/* Left Wing (Right-aligned, ending before Hassan's shoulder) */}
+              <div className="flex flex-col items-end pr-14 sm:pr-20 md:pr-28 lg:pr-36 xl:pr-40 text-right whitespace-nowrap">
+                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] text-[#1e1b4b] dark:text-white transition-colors duration-300">
+                  {heroWords.line1Left}
+                </span>
+                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] hero-stroke-text mt-1 sm:mt-2.5 md:mt-3.5 transition-colors duration-300">
+                  {heroWords.line2Left}
+                </span>
+              </div>
+
+              {/* Right Wing (Left-aligned, starting after Hassan's shoulder) */}
+              <div className="flex flex-col items-start pl-14 sm:pl-20 md:pl-28 lg:pl-36 xl:pr-40 text-left whitespace-nowrap">
+                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] text-blue-600 dark:text-cyan-400 transition-colors duration-300">
+                  {heroWords.line1Right}
+                </span>
+                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] text-[#1e1b4b] dark:text-white mt-1 sm:mt-2.5 md:mt-3.5 transition-colors duration-300">
+                  {heroWords.line2Right}
+                </span>
+              </div>
+
+            </div>
+
+            {/* Centered Cutout Portrait (Foreground z-20, Overlapping Layered Composition) */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
               <img
                 src="/hassan.png"
                 alt={personalInfo.name}
-                className="w-auto h-64 sm:h-80 md:h-96 max-w-full object-contain drop-shadow-[0_15px_30px_rgba(2,132,199,0.22)] transition-transform duration-300 group-hover:scale-105"
+                className="h-[270px] sm:h-[350px] md:h-[430px] lg:h-[480px] xl:h-[510px] w-auto max-w-none object-contain drop-shadow-[0_20px_35px_rgba(2,132,199,0.3)] transition-transform duration-300 select-none"
                 style={{
-                  maskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 84%, transparent 100%)'
+                  maskImage: 'linear-gradient(to bottom, black 86%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 86%, transparent 100%)'
                 }}
               />
 
-              {/* Verification badge */}
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-cyan-500/30 shadow-lg text-xs font-semibold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
+              {/* Verification badge placed directly at Hassan's baseline */}
+              <div className="pointer-events-auto -mt-6 z-30 whitespace-nowrap px-4 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-cyan-500/30 shadow-lg text-xs font-semibold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
                 <span>Full-Stack Web Developer • React & MySQL</span>
               </div>
             </div>
+
           </div>
 
-          {/* Headline */}
-          <div className="space-y-4 pt-2">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+          {/* Subheading & Introduction */}
+          <div className="space-y-4 pt-4 max-w-3xl mx-auto">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
               Hi, I'm <span className="text-gradient-cyan">{personalInfo.name}</span>
               <br />
-              <span className="text-2xl sm:text-4xl lg:text-5xl text-slate-700 dark:text-slate-300 font-bold block mt-3">
+              <span className="text-xl sm:text-3xl lg:text-4xl text-slate-700 dark:text-slate-300 font-bold block mt-2.5">
                 Building Resilient Full-Stack Systems
               </span>
             </h1>
-            <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               Full-Stack Developer crafting fast, scalable React web applications, robust Node.js/Express REST APIs, and normalized MySQL databases with smooth animations and modern aesthetics.
             </p>
           </div>
