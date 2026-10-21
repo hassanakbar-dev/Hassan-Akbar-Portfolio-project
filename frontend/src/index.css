@@ -175,3 +175,56 @@
   overflow: hidden;
   min-height: 0;
 }
+
+/* Hero Layered Typography Stroke */
+.hero-stroke-text {
+  -webkit-text-stroke: 2px #1e1b4b;
+  color: transparent;
+  paint-order: stroke fill;
+}
+
+.dark .hero-stroke-text {
+  -webkit-text-stroke: 2px #38bdf8;
+  color: transparent;
+  paint-order: stroke fill;
+}
+
+@media (min-width: 768px) {
+  .hero-stroke-text {
+    -webkit-text-stroke-width: 3.5px;
+  }
+  .dark .hero-stroke-text {
+    -webkit-text-stroke-width: 3.5px;
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-3deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSlow 5.5s ease-in-out infinite 1.5s;
+}
+
