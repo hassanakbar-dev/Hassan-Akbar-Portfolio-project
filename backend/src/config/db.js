@@ -96,6 +96,15 @@ async function createTables() {
     );
   `
 
+  // Subscribers table
+  const createSubscribersTable = `
+    CREATE TABLE IF NOT EXISTS subscribers (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      email VARCHAR(150) NOT NULL UNIQUE,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+  `
+
   // Users table for Authentication
   const createUsersTable = `
     CREATE TABLE IF NOT EXISTS users (
