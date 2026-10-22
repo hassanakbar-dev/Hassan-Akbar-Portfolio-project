@@ -158,6 +158,20 @@
   animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Typewriter Cursor Blinking */
+@keyframes cursorBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor-blink {
+  animation: cursorBlink 0.9s steps(1) infinite;
+}
+
 /* Smooth Accordion Grid Animation helper */
 .accordion-content {
   display: grid;
