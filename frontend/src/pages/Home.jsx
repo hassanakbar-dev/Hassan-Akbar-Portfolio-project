@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import { 
   FaArrowRight, FaRocket, FaLaptopCode, FaCheckCircle, 
   FaGithub, FaLinkedin, FaFileDownload, FaStar,
-  FaPaintBrush, FaServer, FaBug, FaCloudUploadAlt
+  FaPaintBrush, FaServer, FaBug, FaCloudUploadAlt,
+  FaCalendarAlt
 } from 'react-icons/fa'
 import { 
   SiReact, SiJavascript, SiTailwindcss, SiNodedotjs, 
@@ -423,7 +424,15 @@ export default function Home() {
           })}
         </div>
 
-        <div className="text-center pt-2">
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <Link
+            to="/services#schedule-meeting"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-white bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-md shadow-cyan-600/25 transition cursor-pointer"
+          >
+            <FaCalendarAlt className="text-xs" />
+            <span>Schedule a Free Strategy Call</span>
+          </Link>
+
           <Link
             to="/services"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-slate-800 dark:text-white bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 hover:border-cyan-500/40 shadow-sm transition"
