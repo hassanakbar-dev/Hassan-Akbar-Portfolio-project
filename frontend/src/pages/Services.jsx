@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   FaLaptopCode, FaPaintBrush, FaServer, FaRocket, 
   FaBug, FaCloudUploadAlt, FaCheckCircle, FaShieldAlt, 
-  FaClock, FaSmile, FaCheck, FaArrowRight, FaQuestionCircle 
+  FaClock, FaSmile, FaCheck, FaArrowRight, FaQuestionCircle,
+  FaCalendarAlt 
 } from 'react-icons/fa'
 import { servicesData, servicePackages, workProcess, personalInfo } from '../data/portfolioData'
+import ScheduleMeeting from '../components/ScheduleMeeting'
 
 const iconMap = {
   FaLaptopCode: FaLaptopCode,
@@ -16,9 +19,20 @@ const iconMap = {
 }
 
 export default function Services() {
+  const [meetingModalService, setMeetingModalService] = useState(null)
   return (
     <div className="pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
       
+      {/* Schedule Meeting Modal */}
+      {meetingModalService && (
+        <ScheduleMeeting
+          isModal={true}
+          isOpen={true}
+          preselectedService={meetingModalService}
+          onClose={() => setMeetingModalService(null)}
+        />
+      )}
+
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
@@ -30,6 +44,24 @@ export default function Services() {
         <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
           High-standard web development services tailored to deliver speed, aesthetic elegance, and reliable functionality for founders, startups, and established enterprises.
         </p>
+
+        {/* Quick Action Meeting Buttons */}
+        <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
+          <button
+            onClick={() => setMeetingModalService('General Discovery & Architecture Call')}
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-lg shadow-cyan-600/25 transition cursor-pointer"
+          >
+            <FaCalendarAlt className="text-xs" />
+            <span>Schedule a Free 1-on-1 Meeting</span>
+          </button>
+          <a
+            href="#schedule-meeting"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 shadow-sm transition"
+          >
+            <span>Book Via Calendar Widget</span>
+            <FaArrowRight className="text-[10px] text-cyan-500" />
+          </a>
+        </div>
       </div>
 
       {/* Services Grid (All 6 core services) */}
@@ -56,7 +88,7 @@ export default function Services() {
                 {/* Clickable Description opening dedicated new page */}
                 <Link
                   to={`/services/${service.slug}`}
-                  className="block group/desc mb-5 p-3 -mx-3 rounded-2xl hover:bg-cyan-50/60 dark:hover:bg-cyan-950/25 transition border border-transparent hover:border-cyan-200 dark:hover:border-cyan-800/50 cursor-pointer"
+                  className="block group/desc mb-5 p-3 -mx-3 rounded-2xl hover:bg-cyan-50/60 dark:hover:bg-cyan-950/25 transition border border-transparent hover:border-cyan-200 dark:border-cyan-800/50 cursor-pointer"
                   title="Click to read full description and specifications on a new page"
                 >
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
@@ -92,23 +124,52 @@ export default function Services() {
                 </div>
               </div>
 
-              <div className="pt-6 grid grid-cols-2 gap-3">
-                <Link
-                  to={`/services/${service.slug}`}
-                  className="inline-flex items-center justify-center py-2.5 px-3 rounded-xl text-xs font-bold text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-900/50 border border-cyan-200 dark:border-cyan-800/60 transition text-center"
+              <div className="pt-6 space-y-2.5">
+                <div className="grid grid-cols-2 gap-2.5">
+                  <Link
+                    to={`/services/${service.slug}`}
+                    className="inline-flex items-center justify-center py-2.5 px-3 rounded-xl text-xs font-bold text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-900/50 border border-cyan-200 dark:border-cyan-800/60 transition text-center"
+                  >
+                    Full Details →
+                  </Link>
+                  <Link
+                    to={`/contact?service=${encodeURIComponent(service.title)}`}
+                    className="inline-flex items-center justify-center py-2.5 px-3 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 transition text-center"
+                  >
+                    Request Quote →
+                  </Link>
+                </div>
+
+                {/* Schedule Meeting Button */}
+                <button
+                  type="button"
+                  onClick={() => setMeetingModalService(service.title)}
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900 hover:border-cyan-500/50 border border-slate-200 dark:border-slate-800 transition cursor-pointer shadow-sm group/btn"
                 >
-                  Full Details →
-                </Link>
-                <Link
-                  to={`/contact?service=${encodeURIComponent(service.title)}`}
-                  className="inline-flex items-center justify-center py-2.5 px-3 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 transition text-center"
-                >
-                  Request Quote →
-                </Link>
+                  <FaCalendarAlt className="text-cyan-600 dark:text-cyan-400 text-xs group-hover/btn:scale-110 transition-transform" />
+                  <span>Schedule Meeting for This Service</span>
+                </button>
               </div>
             </div>
           )
         })}
+      </div>
+
+      {/* ----------------- EMBEDDED SCHEDULE MEETING SECTION ----------------- */}
+      <div className="space-y-4">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+            Real-Time Booking
+          </span>
+          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">
+            Schedule a Strategy Session
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-sm">
+            Lock in a calendar slot directly with Hassan Akbar to discuss project timelines, tech stacks, or technical challenges.
+          </p>
+        </div>
+
+        <ScheduleMeeting preselectedService={servicesData[0]?.title} />
       </div>
 
       {/* ----------------- SERVICE PACKAGES & TIERS ----------------- */}
