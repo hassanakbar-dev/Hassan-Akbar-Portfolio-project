@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { 
-  FaArrowRight, FaCode, FaRocket, FaLaptopCode, FaCheckCircle, 
-  FaGithub, FaLinkedin, FaFileDownload, FaBriefcase, FaGraduationCap, 
-  FaCertificate, FaStar, FaQuoteLeft, FaClock, FaShieldAlt
+  FaArrowRight, FaRocket, FaLaptopCode, FaCheckCircle, 
+  FaGithub, FaLinkedin, FaFileDownload, FaStar
 } from 'react-icons/fa'
 import { 
   SiReact, SiJavascript, SiTailwindcss, SiNodedotjs, 
@@ -87,30 +85,17 @@ const techBadges = [
 
 export default function Home() {
   const featuredProjects = projectsData.filter((p) => p.featured)
-  const [heroStyle, setHeroStyle] = useState('vision') // 'vision' = "YOUR VISION, MY PRIORITY", 'role' = "FULL STACK, WEB DEVELOPER"
-
-  const heroWords = heroStyle === 'vision' ? {
-    line1Left: 'YOUR',
-    line1Right: 'VISION,',
-    line2Left: 'MY',
-    line2Right: 'PRIORITY',
-  } : {
-    line1Left: 'FULL',
-    line1Right: 'STACK,',
-    line2Left: 'WEB',
-    line2Right: 'DEVELOPER',
-  }
 
   return (
     <div className="space-y-24 md:space-y-32 pt-28 pb-20 overflow-hidden">
       
-      {/* ----------------- HERO SECTION (REFERENCE DESIGN) ----------------- */}
+      {/* ----------------- HERO SECTION (TWO-COLUMN MODERN LAYOUT) ----------------- */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Subtle Undulating Background Wave Curves */}
         <svg 
-          className="absolute inset-0 w-full h-[600px] pointer-events-none -z-10 opacity-75 dark:opacity-25" 
-          viewBox="0 0 1440 600" 
+          className="absolute inset-0 w-full h-[650px] pointer-events-none -z-10 opacity-75 dark:opacity-25" 
+          viewBox="0 0 1440 650" 
           fill="none" 
           preserveAspectRatio="none"
         >
@@ -119,13 +104,16 @@ export default function Home() {
           <path d="M-60 450 C 380 340, 780 520, 1180 400 C 1340 360, 1450 430, 1500 420" stroke="currentColor" className="text-slate-300/80 dark:text-cyan-400/25" strokeWidth="1.8" />
         </svg>
 
-        {/* Ambient Center Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[380px] bg-gradient-to-tr from-cyan-400/20 via-sky-300/15 to-blue-600/20 blur-[130px] rounded-full pointer-events-none -z-10"></div>
+        {/* Ambient Glows */}
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[550px] h-[360px] bg-gradient-to-tr from-cyan-400/15 via-sky-300/10 to-blue-600/15 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        <div className="absolute top-1/3 right-10 w-[450px] h-[360px] bg-gradient-to-tr from-blue-500/15 via-cyan-300/15 to-indigo-500/15 blur-[130px] rounded-full pointer-events-none -z-10"></div>
 
-        <div className="text-center max-w-6xl mx-auto space-y-8 relative z-10">
+        {/* Two-Column Grid: Left Text, Right Portrait + 4 Circles */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10 pt-2 lg:pt-6">
           
-          {/* Top Bar: Status Pill & Headline Mode Switcher */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 pt-2">
+          {/* ================= LEFT COLUMN: HERO CONTENT & CTAs ================= */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+            
             {/* Status Pill */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 dark:bg-slate-900/90 border border-cyan-500/30 backdrop-blur-md shadow-md shadow-cyan-500/5">
               <span className="relative flex h-2 w-2">
@@ -137,78 +125,105 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Slogan Switcher */}
-            <div className="inline-flex items-center p-1 rounded-full bg-slate-200/80 dark:bg-slate-900/80 border border-slate-300/80 dark:border-slate-800 text-xs font-semibold backdrop-blur-md shadow-sm">
-              <button
-                type="button"
-                onClick={() => setHeroStyle('vision')}
-                className={`px-3 py-1 rounded-full transition-all duration-200 ${
-                  heroStyle === 'vision'
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
-                title="Slogan style matching reference"
-              >
-                Vision & Priority
-              </button>
-              <button
-                type="button"
-                onClick={() => setHeroStyle('role')}
-                className={`px-3 py-1 rounded-full transition-all duration-200 ${
-                  heroStyle === 'role'
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
-                title="Role title style"
-              >
-                Full-Stack Dev
-              </button>
+            {/* Main Headline & Intro */}
+            <div className="space-y-4 max-w-2xl">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+                Hi, I'm <span className="text-gradient-cyan">{personalInfo.name}</span>
+                <br />
+                <span className="text-xl sm:text-3xl lg:text-4xl text-slate-700 dark:text-slate-300 font-bold block mt-2.5">
+                  Building Resilient Full-Stack Systems
+                </span>
+              </h1>
+              <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed">
+                Full-Stack Developer crafting fast, scalable React web applications, robust Node.js/Express REST APIs, and normalized MySQL databases with smooth animations and modern aesthetics.
+              </p>
             </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-1">
+              <Link
+                to="/projects"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-xl shadow-cyan-600/25 hover:-translate-y-0.5 transition duration-200"
+              >
+                <FaRocket className="text-sm" />
+                <span>Explore My Projects</span>
+              </Link>
+
+              <a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold text-slate-800 dark:text-white bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-cyan-500/50 shadow-sm transition duration-200"
+                title="Open and Download Resume PDF"
+              >
+                <FaFileDownload className="text-cyan-600 dark:text-cyan-400 text-sm" />
+                <span>Download CV</span>
+              </a>
+
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400 transition duration-200"
+              >
+                <span>Get in Touch</span>
+                <FaArrowRight className="text-xs text-cyan-600 dark:text-cyan-400" />
+              </Link>
+            </div>
+
+            {/* Social Proof Links */}
+            <div className="flex items-center justify-center lg:justify-start gap-3 pt-2">
+              <a
+                href={personalInfo.socials.github}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm transition"
+                aria-label="GitHub Profile"
+                title="GitHub Profile"
+              >
+                <FaGithub className="w-5 h-5" />
+              </a>
+              <a
+                href={personalInfo.socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm transition"
+                aria-label="LinkedIn Profile"
+                title="LinkedIn Profile"
+              >
+                <FaLinkedin className="w-5 h-5" />
+              </a>
+              <a
+                href={personalInfo.socials.portfolio}
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm transition flex items-center gap-1.5"
+                title="Logistics Live App"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                <span>Live App Demo</span>
+              </a>
+            </div>
+
           </div>
 
-          {/* ================= HERO SHOWCASE: LAYERED TYPOGRAPHY + CUTOUT PORTRAIT ================= */}
-          <div className="relative w-full mx-auto min-h-[360px] sm:min-h-[440px] md:min-h-[500px] lg:min-h-[540px] flex items-center justify-center py-4 select-none">
+          {/* ================= RIGHT COLUMN: PORTRAIT + 4 CORNER CIRCLES + SUBTLE BACKDROP ================= */}
+          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] select-none py-4">
             
-            {/* Floating Outline Doodles */}
-            <CloudShieldDoodle className="absolute left-2 sm:left-4 md:left-8 lg:left-10 top-2 sm:top-4 md:top-6 animate-float-slow z-20" />
-            <RocketDoodle className="absolute left-2 sm:left-4 md:left-8 lg:left-10 bottom-8 sm:bottom-12 md:bottom-16 animate-float-delayed z-20" />
-            <AiLightbulbDoodle className="absolute right-2 sm:right-4 md:right-8 lg:right-10 top-2 sm:top-4 md:top-6 animate-float-reverse z-20" />
-            <CodeSparkleDoodle className="absolute right-2 sm:right-4 md:right-8 lg:right-10 bottom-8 sm:bottom-12 md:bottom-16 animate-float-slow z-20" />
+            {/* 4 Floating Outline Doodles (2 Top, 2 Bottom around Image) */}
+            <CloudShieldDoodle className="absolute -top-1 left-2 sm:left-6 animate-float-slow z-20" />
+            <AiLightbulbDoodle className="absolute -top-1 right-2 sm:right-6 animate-float-reverse z-20" />
+            <RocketDoodle className="absolute bottom-8 left-2 sm:left-6 animate-float-delayed z-20" />
+            <CodeSparkleDoodle className="absolute bottom-8 right-2 sm:right-6 animate-float-slow z-20" />
 
-            {/* Ambient Studio Backlight Glow behind Hassan */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 md:w-[400px] h-64 sm:h-80 md:h-[400px] bg-gradient-to-tr from-cyan-400/25 via-sky-300/20 to-blue-600/25 rounded-full blur-3xl pointer-events-none z-10"></div>
+            {/* Ambient Studio Backlight Glow behind Portrait */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 md:w-[380px] h-64 sm:h-80 md:h-[380px] bg-gradient-to-tr from-cyan-400/25 via-sky-300/20 to-blue-600/25 rounded-full blur-3xl pointer-events-none z-0"></div>
 
-            {/* Giant Layered Backdrop Typography (Symmetric Two-Column Grid - 100% Readable) */}
-            <div className="relative z-10 w-full grid grid-cols-2 font-black tracking-tight leading-[0.92] uppercase">
-              
-              {/* Left Wing (Right-aligned, ending before Hassan's shoulder) */}
-              <div className="flex flex-col items-end pr-14 sm:pr-20 md:pr-28 lg:pr-36 xl:pr-40 text-right whitespace-nowrap">
-                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] text-[#1e1b4b] dark:text-white transition-colors duration-300">
-                  {heroWords.line1Left}
-                </span>
-                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] hero-stroke-text mt-1 sm:mt-2.5 md:mt-3.5 transition-colors duration-300">
-                  {heroWords.line2Left}
-                </span>
-              </div>
 
-              {/* Right Wing (Left-aligned, starting after Hassan's shoulder) */}
-              <div className="flex flex-col items-start pl-14 sm:pl-20 md:pl-28 lg:pl-36 xl:pr-40 text-left whitespace-nowrap">
-                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] text-blue-600 dark:text-cyan-400 transition-colors duration-300">
-                  {heroWords.line1Right}
-                </span>
-                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[88px] text-[#1e1b4b] dark:text-white mt-1 sm:mt-2.5 md:mt-3.5 transition-colors duration-300">
-                  {heroWords.line2Right}
-                </span>
-              </div>
-
-            </div>
-
-            {/* Centered Cutout Portrait (Foreground z-20, Overlapping Layered Composition) */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
+            {/* Cutout Portrait (Foreground z-10) */}
+            <div className="relative z-10 flex flex-col items-center pointer-events-none">
               <img
                 src="/hassan.png"
                 alt={personalInfo.name}
-                className="h-[270px] sm:h-[350px] md:h-[430px] lg:h-[480px] xl:h-[510px] w-auto max-w-none object-contain drop-shadow-[0_20px_35px_rgba(2,132,199,0.3)] transition-transform duration-300 select-none"
+                className="h-[290px] sm:h-[380px] md:h-[430px] lg:h-[460px] xl:h-[490px] w-auto max-w-none object-contain drop-shadow-[0_20px_35px_rgba(2,132,199,0.3)] transition-transform duration-300 select-none"
                 style={{
                   maskImage: 'linear-gradient(to bottom, black 86%, transparent 100%)',
                   WebkitMaskImage: 'linear-gradient(to bottom, black 86%, transparent 100%)'
@@ -222,84 +237,6 @@ export default function Home() {
               </div>
             </div>
 
-          </div>
-
-          {/* Subheading & Introduction */}
-          <div className="space-y-4 pt-4 max-w-3xl mx-auto">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
-              Hi, I'm <span className="text-gradient-cyan">{personalInfo.name}</span>
-              <br />
-              <span className="text-xl sm:text-3xl lg:text-4xl text-slate-700 dark:text-slate-300 font-bold block mt-2.5">
-                Building Resilient Full-Stack Systems
-              </span>
-            </h1>
-            <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Full-Stack Developer crafting fast, scalable React web applications, robust Node.js/Express REST APIs, and normalized MySQL databases with smooth animations and modern aesthetics.
-            </p>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-xl shadow-cyan-600/25 hover:-translate-y-0.5 transition duration-200"
-            >
-              <FaRocket className="text-sm" />
-              <span>Explore My Projects</span>
-            </Link>
-
-            <a
-              href={personalInfo.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold text-slate-800 dark:text-white bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-cyan-500/50 shadow-sm transition duration-200"
-              title="Open and Download Resume PDF"
-            >
-              <FaFileDownload className="text-cyan-600 dark:text-cyan-400 text-sm" />
-              <span>Download CV</span>
-            </a>
-
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400 transition duration-200"
-            >
-              <span>Get in Touch</span>
-              <FaArrowRight className="text-xs text-cyan-600 dark:text-cyan-400" />
-            </Link>
-          </div>
-
-          {/* Social Proof Links */}
-          <div className="flex items-center justify-center gap-3 pt-2">
-            <a
-              href={personalInfo.socials.github}
-              target="_blank"
-              rel="noreferrer"
-              className="p-3 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm transition"
-              aria-label="GitHub Profile"
-              title="GitHub Profile"
-            >
-              <FaGithub className="w-5 h-5" />
-            </a>
-            <a
-              href={personalInfo.socials.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="p-3 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm transition"
-              aria-label="LinkedIn Profile"
-              title="LinkedIn Profile"
-            >
-              <FaLinkedin className="w-5 h-5" />
-            </a>
-            <a
-              href={personalInfo.socials.portfolio}
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm transition flex items-center gap-1.5"
-              title="Logistics Live App"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-              <span>Live App Demo</span>
-            </a>
           </div>
 
         </div>
