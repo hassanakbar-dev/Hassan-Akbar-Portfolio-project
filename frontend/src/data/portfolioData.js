@@ -15,7 +15,9 @@ export const personalInfo = {
   socials: {
     github: "https://github.com/hassanakbar-dev",
     linkedin: "https://linkedin.com/in/hassan-akbar-804b54378",
-    portfolio: "https://logistics-management-system-lxqp.vercel.app/",
+    portfolio: "https://techsphere-solutions.vercel.app/",
+    techsphere: "https://techsphere-solutions.vercel.app/",
+    healthcare: "https://healthcare-system-eta-liart.vercel.app/",
   },
   resumeUrl: "/Hassan-Akbar-Resume.pdf",
   aboutBio: `Motivated and detail-oriented Full Stack Developer with hands-on experience building responsive, user-friendly web applications using HTML, CSS, JavaScript, React.js, Node.js, and Express.js. Skilled in developing front-end interfaces and back-end services, designing and integrating MySQL databases, and building RESTful APIs. Completed a 5-month web development internship at Bits Phile (Pvt) and delivered multiple production-ready full stack projects. Passionate about writing clean, efficient, maintainable code, solving technical problems, and continuously learning modern web technologies.`,
@@ -391,93 +393,339 @@ export const languagesData = [
 export const servicesData = [
   {
     id: 1,
+    slug: "full-stack-web-development",
     title: "Full-Stack Web Development",
+    tagline: "End-to-End Modern Web Architecture with React.js, Node.js & MySQL",
     icon: "FaLaptopCode",
     description: "End-to-end development of dynamic, robust web applications from intuitive client interfaces to scalable Node.js server architectures and relational MySQL databases.",
+    fullDescription: [
+      "In today's fast-moving digital economy, a successful web application requires more than just a visually attractive interface—it demands a resilient, high-speed backend, synchronized state management, and an impeccably modeled relational database.",
+      "I provide end-to-end full-stack engineering tailored to launch MVPs, SaaS platforms, internal operations portals, and dynamic web applications. From conceptualizing the frontend component architecture in modern React.js to architecting RESTful micro-endpoints in Node.js and Express.js, every tier of your application is built to perform seamlessly.",
+      "On the data layer, I design normalized MySQL databases with strategic indexing and relational integrity constraints (1:1, 1:N, N:M), guaranteeing sub-100ms query execution times and preventing data corruption under concurrent load.",
+      "Every project is delivered with automated cloud deployment on Vercel, clean Git version control, post-launch documentation, and 30-day technical warranty to ensure your application runs without a hitch."
+    ],
     features: [
       "Dynamic Single Page Applications (SPAs) built with modern React.js",
       "High-performance Node.js & Express.js server backends",
       "Relational MySQL database schemas with optimized queries & indexes",
       "Secure RESTful APIs with validation, error handling & token authentication",
-      "Full Vercel cloud deployment with environment secrets and SSL configuration"
+      "Full Vercel cloud deployment with environment secrets and SSL configuration",
+      "Real-time state updates, optimistic UI patterns & error boundary protection"
     ],
+    keyBenefits: [
+      { title: "Unified Full-Stack Delivery", desc: "No coordinating between separate frontend and backend contractors; single-developer accountability from UI to DB." },
+      { title: "Sub-Second Response Times", desc: "Optimized SQL queries and lightweight client bundles deliver sub-100ms API calls and fast initial page loads." },
+      { title: "Maintainable & Modular Code", desc: "Strict DRY principles, component decoupling, and separated MVC server routes ensure easy future scaling." },
+      { title: "Enterprise Grade Security", desc: "Input sanitization, parameterized queries preventing SQL injections, CORS policies, and protected routes." }
+    ],
+    whoIsThisFor: [
+      { title: "Founders & Startups", desc: "Entrepreneurs needing a rapid, production-ready MVP to validate their business idea with real users." },
+      { title: "Growing Businesses", desc: "Companies outgrowing static sites that need dynamic customer portals, bookings, or internal tooling." },
+      { title: "Legacy System Modernization", desc: "Organizations looking to upgrade obsolete systems into high-speed modern React & Node applications." }
+    ],
+    workflowSteps: [
+      { step: "01", title: "Discovery & Schema Architecture", desc: "Analyzing user flows, requirements, and drafting the normalized MySQL entity relationship diagram (ERD)." },
+      { step: "02", title: "Frontend Prototyping & Components", desc: "Constructing modular React component trees with Tailwind CSS, ensuring pixel-perfect responsiveness." },
+      { step: "03", title: "Backend API & Database Integration", desc: "Developing secure Express.js routes, JWT authentication, and integrating asynchronous Axios pipelines." },
+      { step: "04", title: "Quality Assurance & Performance Audit", desc: "Rigorous cross-browser testing, edge-case error boundary checks, and Lighthouse speed audits." },
+      { step: "05", title: "Vercel Cloud Launch & Handover", desc: "Automated continuous deployment, environment variable encryption, live domain mapping, and source handover." }
+    ],
+    techStack: ["React.js", "Node.js", "Express.js", "MySQL", "Tailwind CSS", "Vercel", "Git & GitHub", "Postman"],
     deliverables: "Production Web App, Clean Source Code, MySQL Schema Dump, Deployment URL, API Documentation",
-    turnaround: "1 - 3 Weeks"
+    deliverablesList: [
+      "Production-ready React frontend bundle deployed on Vercel with HTTPS",
+      "Node.js & Express server codebase following clean MVC architecture",
+      "Complete MySQL database schema dump (.sql) with indexes and relationships",
+      "Postman API testing collection with sample requests & responses",
+      "Comprehensive README.md setup & environment configuration guide",
+      "30-day post-launch technical warranty and bug support"
+    ],
+    turnaround: "1 - 3 Weeks",
+    serviceFaqs: [
+      { question: "Can you build both the frontend and backend from scratch?", answer: "Yes! I handle the full development lifecycle: UI design with Tailwind CSS, client state in React, server endpoints in Node/Express, and database schema in MySQL." },
+      { question: "Will my web app work on mobile devices?", answer: "Absolutely. 100% responsive design is baked into every component, tested across iOS Safari, Android Chrome, tablets, and 4K desktop screens." },
+      { question: "How is the application deployed?", answer: "I deploy the frontend to Vercel with automatic CI/CD from GitHub, configure environment variables securely, and connect the live production database." }
+    ]
   },
   {
     id: 2,
+    slug: "responsive-frontend-engineering",
     title: "Responsive Frontend Engineering",
+    tagline: "Pixel-Perfect, Accessible & Animated Interfaces with React.js & Tailwind CSS",
     icon: "FaPaintBrush",
     description: "Transforming Figma designs, wireframes, or product concepts into pixel-perfect, hyper-responsive, and accessible web interfaces using React and modern Tailwind CSS.",
+    fullDescription: [
+      "First impressions dictate user trust. A web interface that lags, shifts unexpectedly on mobile devices, or feels clunky will lose users within seconds. Frontend engineering is the art of balancing aesthetic beauty with technical precision.",
+      "I translate design files (Figma, Adobe XD, Sketch, or rough wireframes) into living, accessible, and high-performance React.js component libraries. Leveraging modern Tailwind CSS, I craft custom design tokens, dark/light themes, fluid typography, and glassmorphism cards that impress clients from the very first interaction.",
+      "Every interface is developed with mobile-first principles, ensuring smooth layout reflows across smartphone viewports, iPad screens, and ultra-wide desktop monitors without breaking layout or causing horizontal overflow bugs.",
+      "Beyond static styling, I incorporate micro-animations, loading skeletons, modal transitions, and interactive accordions that make the digital experience feel snappy, tactile, and delightfully responsive."
+    ],
     features: [
       "100% adaptive layouts across mobile smartphones, tablets, laptops & 4K monitors",
       "Modern Tailwind CSS styling with custom palettes, glassmorphism & cards",
       "Smooth micro-animations, transitions, and interactive accordion/modals",
       "Clean, modular component architecture with reusable UI elements",
-      "Cross-browser testing (Chrome, Firefox, Safari, Edge)"
+      "Cross-browser testing (Chrome, Firefox, Safari, Edge)",
+      "Light & Dark mode system integration with persistent user preference"
     ],
+    keyBenefits: [
+      { title: "Pixel-Perfect Fidelity", desc: "Your final web app matches your design mockups down to exact padding, typography line-heights, and color hues." },
+      { title: "Lightning Fast Rendering", desc: "Vite-optimized builds and lightweight zero-bloat CSS ensure smooth 60fps animations and instant paint times." },
+      { title: "Accessible & Semantic", desc: "ARIA attributes, semantic HTML tags, keyboard navigation, and high contrast ratios comply with modern standards." },
+      { title: "Modular Component Reusability", desc: "Components are built with clear props, making them effortless for your in-house team to reuse and extend." }
+    ],
+    whoIsThisFor: [
+      { title: "Designers & Agencies", desc: "UI/UX designers who need an engineer to turn their Figma mockups into pixel-faithful interactive React code." },
+      { title: "Backend Developers", desc: "Engineers who have built rock-solid APIs and databases but need an elegant, modern frontend to showcase their product." },
+      { title: "Brands Needing UI Modernization", desc: "Businesses whose websites look outdated and want a vibrant, contemporary digital overhaul." }
+    ],
+    workflowSteps: [
+      { step: "01", title: "Figma & Wireframe Analysis", desc: "Auditing typography hierarchies, color palettes, spacing units, and responsive breakpoint requirements." },
+      { step: "02", title: "Design Token & CSS Setup", desc: "Configuring Tailwind CSS utility layers, custom font faces, color variables, and dark mode toggles." },
+      { step: "03", title: "Component Tree Engineering", desc: "Building modular, reusable React UI components (Buttons, Inputs, Modals, Cards, Navbars)." },
+      { step: "04", title: "Cross-Device Responsive QA", desc: "Testing touch targets, viewport reflows, and performance across iOS, Android, macOS, and Windows." },
+      { step: "05", title: "Animation Polish & Handover", desc: "Adding subtle transitions, hover dynamics, accessibility labels (ARIA), and clean Git repository delivery." }
+    ],
+    techStack: ["React.js", "Tailwind CSS", "HTML5 & CSS3", "JavaScript (ES6+)", "Vite", "React Icons", "Figma to Code"],
     deliverables: "React Component Library, Responsive Tailwind UI, Production Build, Git Repository",
-    turnaround: "3 - 7 Days"
+    deliverablesList: [
+      "Modular, reusable React.js component library (.jsx files)",
+      "Custom Tailwind CSS configuration with responsive tokens & themes",
+      "Optimized production build with zero CSS bloat via Vite bundler",
+      "Full GitHub repository handover with clean commit history",
+      "Cross-browser & cross-device compatibility verification report",
+      "Documentation explaining props, state usage, and theme switches"
+    ],
+    turnaround: "3 - 7 Days",
+    serviceFaqs: [
+      { question: "Can you convert my Figma file directly into React code?", answer: "Yes! Send me your Figma link and I will convert all screens, components, and responsive variants into modular, production-ready React JSX." },
+      { question: "Does it include dark mode and light mode?", answer: "Yes, I integrate seamless dark and light mode switching with smooth color transitions and persistent state." },
+      { question: "Is the frontend easy to connect to my existing backend API?", answer: "Yes, all data-binding components are structured to accept clean props or Axios/Fetch hooks for instant backend wiring." }
+    ]
   },
   {
     id: 3,
+    slug: "restful-api-database-integration",
     title: "RESTful API Design & Database Integration",
+    tagline: "Scalable Server Architectures, Clean JSON Endpoints & Relational MySQL Persistence",
     icon: "FaServer",
     description: "Designing, building, and documenting secure server-side APIs that power your web apps with deterministic business logic and rock-solid MySQL persistence.",
+    fullDescription: [
+      "An application's frontend is only as dependable as the server architecture driving it behind the scenes. Without deterministic validation, secure token authentication, and optimized SQL transactions, applications suffer data corruption, crashes, and security vulnerabilities.",
+      "I engineer robust, production-grade RESTful APIs using Node.js and Express.js, structured around clean MVC (Model-View-Controller) architecture. Every endpoint follows strict HTTP convention (GET, POST, PUT, DELETE, PATCH) with standard JSON response envelopes and descriptive HTTP status codes.",
+      "On the database tier, I architect relational schemas in MySQL, establishing strict primary and foreign key constraints, cascading rules, and strategic indexes to guarantee data integrity across high concurrency operations.",
+      "Security is engineered at every layer: input sanitization to eliminate SQL injection attacks, CORS restrictions, password hashing via bcrypt, JWT authorization tokens, and request rate-limiting middleware to protect your server from abuse."
+    ],
     features: [
       "Clean RESTful endpoints following standard HTTP methods & status codes",
       "Structured MVC backend architecture with separated controllers & routes",
       "Relational database design, table relationships (1:1, 1:N, N:M), and migrations",
       "Input data sanitization, SQL injection prevention & CORS policy configuration",
-      "Postman API testing collection and clear JSON response schema"
+      "Postman API testing collection and clear JSON response schema",
+      "Token-based authentication (JWT) and role-based route protection"
     ],
+    keyBenefits: [
+      { title: "Deterministic Performance", desc: "Sub-100ms API response times thanks to non-blocking I/O and indexed MySQL relational queries." },
+      { title: "Fortified Security", desc: "Zero SQL injection exposure through parameterized queries, validated request bodies, and token validation." },
+      { title: "Postman Documentation Included", desc: "Comprehensive Postman collection with sample headers, auth tokens, and response examples for easy onboarding." },
+      { title: "Clean MVC Architecture", desc: "Separated routes, controllers, and database models make adding new features simple for any engineering team." }
+    ],
+    whoIsThisFor: [
+      { title: "Web & Mobile App Developers", desc: "Teams needing a rock-solid backend API to support React web apps or Flutter/React Native mobile clients." },
+      { title: "SaaS & Platform Creators", desc: "Founders requiring complex CRUD business workflows, appointment booking logic, or multi-tenant user access." },
+      { title: "Database Modernization", desc: "Businesses needing to migrate chaotic unstructured data or flat files into a relational, indexed MySQL database." }
+    ],
+    workflowSteps: [
+      { step: "01", title: "API Contract & Schema Specification", desc: "Defining all endpoints, JSON payload structures, query params, and creating the MySQL ERD." },
+      { step: "02", title: "Express Server & MVC Setup", desc: "Scaffolding controllers, routes, middleware, and MySQL connection pooling with mysql2/promise." },
+      { step: "03", title: "Authentication & Security Layer", desc: "Integrating JWT tokens, bcrypt password encryption, input sanitization, and CORS policies." },
+      { step: "04", title: "End-to-End Postman Verification", desc: "Rigorous endpoint testing under positive and negative payloads, validation checks, and error logging." },
+      { step: "05", title: "Exportable Postman Collection & Docs", desc: "Generating ready-to-import Postman collections, SQL schema migration files, and server runbook." }
+    ],
+    techStack: ["Node.js", "Express.js", "MySQL", "JWT (JSON Web Tokens)", "Postman", "bcrypt", "CORS Middleware", "XAMPP / Cloud DB"],
     deliverables: "Express.js Server, MySQL Schema Files, Postman API Collection, Security Middleware",
-    turnaround: "4 - 10 Days"
+    deliverablesList: [
+      "Node.js & Express.js source code organized in MVC directory structure",
+      "Normalized MySQL database dump (.sql) with primary/foreign keys & indexes",
+      "Importable Postman Collection with saved test environments and JSON schemas",
+      "Security middleware protecting against SQL injection, XSS, and CORS issues",
+      "Centralized error handling and structured JSON response formatting",
+      "API documentation outlining all endpoints, request bodies, and status codes"
+    ],
+    turnaround: "4 - 10 Days",
+    serviceFaqs: [
+      { question: "Will you provide a Postman collection for testing?", answer: "Yes! Every API comes with an exported, organized Postman collection complete with environment variables, example requests, and responses." },
+      { question: "How do you protect against database injections and attacks?", answer: "I utilize strictly parameterized SQL queries, body sanitization middleware, strong password hashing with bcrypt, and secure HTTP-only cookies or bearer tokens." },
+      { question: "Can this API connect to multiple frontends like mobile and web?", answer: "Yes, standard JSON REST endpoints can seamlessly power React web apps, iOS/Android mobile apps, or third-party webhooks." }
+    ]
   },
   {
     id: 4,
+    slug: "performance-optimization-seo",
     title: "Performance Optimization & SEO Audit",
+    tagline: "Google Lighthouse 90+ Scores, Blazing Load Speeds & Enhanced Search Engine Visibility",
     icon: "FaRocket",
     description: "Accelerating page load speeds, optimizing Core Web Vitals, and implementing semantic HTML5 structure so your website ranks higher on Google and retains users.",
+    fullDescription: [
+      "A 1-second delay in page load time can reduce conversions by up to 20%. Furthermore, Google's search algorithms heavily penalize websites that fail Core Web Vitals (Largest Contentful Paint, Cumulative Layout Shift, and First Input Delay).",
+      "I perform systematic performance audits and code-level refactoring to elevate your website into the 90-100 green score tier on Google Lighthouse and PageSpeed Insights.",
+      "My optimization roadmap includes Vite code-splitting, modern image conversion (WebP/AVIF) with lazy-loading, tree-shaking bloated dependencies, eliminating render-blocking stylesheets/scripts, and caching static assets.",
+      "On the SEO front, I implement semantic HTML5 markup, structured JSON-LD schemas, dynamic Open Graph social preview cards, canonical tags, and descriptive meta headers so your brand ranks higher and converts organic search visitors."
+    ],
     features: [
       "Google Lighthouse 90+ score optimization for Performance, SEO & Best Practices",
       "Asset compression, image optimization, lazy loading & Vite code splitting",
       "Semantic HTML5 tags, meta descriptions, Open Graph cards & canonical links",
       "Eliminating render-blocking CSS/JS and minimizing bundle footprint",
-      "Accessible markup adhering to WCAG contrast and screen-reader standards"
+      "Accessible markup adhering to WCAG contrast and screen-reader standards",
+      "Sub-2s First Contentful Paint (FCP) and near-zero Cumulative Layout Shift (CLS)"
     ],
+    keyBenefits: [
+      { title: "Green 90+ Lighthouse Guarantee", desc: "Measurable improvements across Performance, Accessibility, Best Practices, and SEO metrics." },
+      { title: "Lower Bounce Rates & Higher Sales", desc: "Faster page loading keeps mobile visitors engaged, directly boosting conversion and sign-up rates." },
+      { title: "Higher Google Organic Ranking", desc: "Clean semantic markup and fast Core Web Vitals signal quality to Google search ranking algorithms." },
+      { title: "Optimized Social Sharing", desc: "Rich preview thumbnails and catchy snippets appear automatically when your links are shared on Slack, WhatsApp, or Twitter." }
+    ],
+    whoIsThisFor: [
+      { title: "E-Commerce & SaaS Businesses", desc: "Stores and product sites where slow loading times directly cost revenue and increase customer bounce rates." },
+      { title: "Founders Launching on Search", desc: "Websites looking to generate organic leads on Google search without burning thousands on paid advertisements." },
+      { title: "Slow or Bloated React Sites", desc: "Web applications that feel sluggish on mobile data due to oversized bundles or unoptimized assets." }
+    ],
+    workflowSteps: [
+      { step: "01", title: "Comprehensive Baseline Audit", desc: "Running Google Lighthouse, GTmetrix, and Web Vitals benchmarks to identify exact performance bottlenecks." },
+      { step: "02", title: "Asset Compression & Lazy Loading", desc: "Converting heavy PNG/JPEG assets into modern WebP formats and adding lazy image loading observers." },
+      { step: "03", title: "Bundle Splitting & Code Tree-Shaking", desc: "Eliminating unused NPM packages, implementing dynamic React import splits, and optimizing CSS." },
+      { step: "04", title: "SEO Meta & Social Sharing Tags", desc: "Crafting unique meta titles, descriptions, canonical URLs, and Open Graph cards for Twitter & LinkedIn." },
+      { step: "05", title: "Verification Report & Delivery", desc: "Generating before-and-after Lighthouse performance scores (90+) with long-term maintenance recommendations." }
+    ],
+    techStack: ["Google Lighthouse", "PageSpeed Insights", "Vite Code Splitting", "WebP Optimization", "Semantic HTML5", "Open Graph Meta"],
     deliverables: "Lighthouse 95+ Audit Report, Optimized Production Bundle, SEO Meta Configuration",
-    turnaround: "2 - 5 Days"
+    deliverablesList: [
+      "Before-and-after Google Lighthouse & PageSpeed audit benchmark report",
+      "Fully compressed and modern WebP formatted media assets",
+      "Optimized production bundle with code splitting and tree-shaking applied",
+      "Complete SEO meta tags suite: Title, Description, Canonical & Open Graph",
+      "WCAG color contrast and accessibility adjustments",
+      "Ongoing speed maintenance checklist for your content team"
+    ],
+    turnaround: "2 - 5 Days",
+    serviceFaqs: [
+      { question: "Can you really get my score to 90+ on Google Lighthouse?", answer: "Yes! By eliminating unused JavaScript, compressing images, and optimizing Vite build chunks, achieving 90+ across all 4 Lighthouse categories is my standard target." },
+      { question: "Will the optimization break my existing design or layout?", answer: "No. All visual elements, animations, and branding remain intact—the optimization happens in the underlying bundle, assets, and rendering pipeline." },
+      { question: "How will this help my SEO?", answer: "Google ranks fast, mobile-friendly sites higher. Adding semantic HTML, meta descriptions, and Open Graph previews also improves search indexation." }
+    ]
   },
   {
     id: 5,
+    slug: "bug-fixing-refactoring",
     title: "Bug Fixing, Refactoring & Code Modernization",
+    tagline: "Rapid Glitch Troubleshooting, Clean Component Refactoring & Codebase Stabilization",
     icon: "FaBug",
     description: "Diagnosing stubborn UI glitches, fixing server crashes, refactoring messy codebases, and updating outdated dependencies to modern, maintainable standards.",
+    fullDescription: [
+      "Software debt accumulates quickly. Legacy class components, unhandled async promise rejections, state desynchronization in React, or broken CSS layouts can bring progress to a grinding halt and frustrate paying clients.",
+      "I provide rapid, surgical code intervention to troubleshoot and permanently resolve technical bugs. Whether your React app is stuck in an infinite re-render loop, your Express server crashes unpredictably under certain inputs, or your CSS grid breaks on mobile viewports, I diagnose the root cause and implement clean, permanent fixes.",
+      "Beyond immediate bug fixing, I specialize in refactoring tangled 'spaghetti' code. I replace outdated lifecycle patterns with modern React hooks (useState, useEffect, useMemo, custom hooks), decouple massive multi-thousand-line files into modular components, and enforce strict DRY (Don't Repeat Yourself) design principles.",
+      "Every fix is accompanied by detailed Git commit diffs, regression testing, and code comments explaining what caused the issue and how to prevent it in the future."
+    ],
     features: [
       "Rapid diagnosis of React state bugs, infinite loops & rendering glitches",
       "Backend crash resolution, unhandled promise rejections & error logging",
       "Refactoring outdated class components to modern React hooks & clean functions",
       "CSS layout fixes: broken flexbox/grid alignments, responsive overflow bugs",
-      "Codebase cleanup following strict DRY and clean-code best practices"
+      "Codebase cleanup following strict DRY and clean-code best practices",
+      "Preventative error boundaries to ensure graceful user degradation"
     ],
+    keyBenefits: [
+      { title: "Rapid Turnaround", desc: "Most urgent UI and backend bugs are diagnosed and resolved within 24 to 72 hours." },
+      { title: "Zero Collateral Damage", desc: "Strict regression testing ensures that fixing one bug never introduces new problems into your app." },
+      { title: "Maintainable & Clean Codebase", desc: "Refactored code is readable, modular, and easy for any new developer on your team to understand." },
+      { title: "Transparent Git Diffs", desc: "Clear commit messages showing exactly what lines changed, giving you full control and peace of mind." }
+    ],
+    whoIsThisFor: [
+      { title: "Teams Stuck on Critical Bugs", desc: "Developers or founders facing elusive state issues, console errors, or server crashes before an important release." },
+      { title: "Apps with Legacy Tech Debt", desc: "Projects built with outdated patterns, deprecated NPM packages, or cluttered monolithic files that need clean-up." },
+      { title: "Broken Layouts on Specific Devices", desc: "Sites suffering horizontal scrollbars, broken flexbox wrapping, or z-index overlapping on iPhone/Android." }
+    ],
+    workflowSteps: [
+      { step: "01", title: "Error Reproduction & Root Cause Analysis", desc: "Replicating the glitch locally, inspecting React DevTools, console traces, and server logs." },
+      { step: "02", title: "Isolated Test & Fix Implementation", desc: "Writing surgical code fixes that resolve the root flaw without triggering side-effects elsewhere." },
+      { step: "03", title: "Refactoring & Component Decoupling", desc: "Refactoring messy blocks into clean, reusable functions, hooks, and modular UI pieces." },
+      { step: "04", title: "Regression & Cross-Device QA", desc: "Verifying that adjacent workflows, forms, and responsive screen sizes remain completely stable." },
+      { step: "05", title: "Git Pull Request & Explanation Summary", desc: "Delivering a clear Git commit diff with technical commentary detailing what was corrected." }
+    ],
+    techStack: ["React DevTools", "Chrome DevTools", "Node.js Debugger", "Modern React Hooks", "ESLint / Clean Code", "Git Diff Handover"],
     deliverables: "Tested Bug Fixes, Git Commit Diff, Code Review Summary, Stability Verification",
-    turnaround: "1 - 3 Days"
+    deliverablesList: [
+      "Tested and verified code bug fixes delivered via clean Git PR or branch",
+      "Refactored modular components following modern React hook conventions",
+      "Detailed bug report detailing root causes and preventative architectural tips",
+      "Removal of deprecated NPM dependencies and replacement with secure alternatives",
+      "Regression verification across mobile, tablet, and desktop viewports",
+      "14-day warranty on all resolved bugs"
+    ],
+    turnaround: "1 - 3 Days",
+    serviceFaqs: [
+      { question: "How quickly can you start fixing my bug?", answer: "I typically begin investigation within a few hours of receiving repository access and reproduction details, with most bugs fixed within 24 to 48 hours." },
+      { question: "Will you provide an explanation of what went wrong?", answer: "Yes! Every fix comes with a concise summary explaining what caused the bug and best practices to prevent similar errors in future sprints." },
+      { question: "Do you offer a warranty on fixes?", answer: "Yes, I offer a 14-day warranty on all resolved issues to ensure zero recurring regressions." }
+    ]
   },
   {
     id: 6,
+    slug: "cloud-deployment-continuous-delivery",
     title: "Cloud Deployment & Continuous Delivery",
+    tagline: "Automated Vercel CI/CD Pipelines, Custom Domains & Zero-Downtime Releases",
     icon: "FaCloudUploadAlt",
     description: "Taking your web application live on production cloud platforms with automated CI/CD pipelines, SSL certificates, custom domain routing, and environment safety.",
+    fullDescription: [
+      "Writing code is only half the battle; deploying it securely to global production infrastructure with automated continuous delivery is what turns code into a living, revenue-generating product.",
+      "I manage complete cloud deployments, transitioning your code from local environments (like localhost and XAMPP) to high-availability production cloud platforms. I specialize in Vercel cloud deployments for modern React frontends and cloud server/database hosting.",
+      "I configure automated CI/CD pipelines directly connected to your GitHub repositories: every time you or your team merge code into the production branch, Vercel automatically builds, tests, and deploys the new version within seconds—with zero downtime for active users.",
+      "Security and reliability are non-negotiable: I set up encrypted production environment variables (preventing database passwords or API keys from ever leaking into public code), configure custom domains with automatic free SSL/TLS certificates, and provide rollback strategies in case of unexpected production anomalies."
+    ],
     features: [
       "Seamless production deployment to Vercel with zero downtime",
       "Automated CI/CD workflows triggered directly on GitHub commit push",
       "Secure environment variables setup for API keys, secrets & credentials",
       "Custom domain DNS configuration (A records, CNAME, HTTPS certificates)",
-      "Continuous health monitoring, production error checks & rollback plans"
+      "Continuous health monitoring, production error checks & rollback plans",
+      "Global Edge CDN distribution for lightning-fast international delivery"
     ],
+    keyBenefits: [
+      { title: "Zero-Downtime Deployment", desc: "New updates roll out instantaneously without taking your website offline or interrupting user workflows." },
+      { title: "Bank-Grade Encryption", desc: "Free automatic SSL certificates ensure your visitors browse over safe, encrypted HTTPS protocols." },
+      { title: "Instant Git Rollbacks", desc: "If a buggy commit ever hits production, revert back to any previous deployment with a single click." },
+      { title: "Global Edge Caching", desc: "Your site assets are distributed across worldwide CDN nodes, ensuring fast loads from North America to Asia." }
+    ],
+    whoIsThisFor: [
+      { title: "Developers Ready to Go Live", desc: "Engineers who built an app on localhost and want it professionally deployed to the public web with a custom domain." },
+      { title: "Startups Needing Automated CI/CD", desc: "Teams tired of manual FTP uploads that need instant automated deployments on git push." },
+      { title: "Businesses Requiring SSL & Security", desc: "Web applications that need HTTPS certificates, DNS configuration, and secured API credentials." }
+    ],
+    workflowSteps: [
+      { step: "01", title: "Build Optimization & Security Audit", desc: "Ensuring production build commands pass without warnings and verifying sensitive keys are not in code." },
+      { step: "02", title: "Vercel & Git Repository Linking", desc: "Configuring continuous deployment webhooks so code pushes automatically trigger production builds." },
+      { step: "03", title: "Environment Variables Configuration", desc: "Safely injecting secrets (database credentials, JWT secrets, third-party API keys) into cloud vaults." },
+      { step: "04", title: "Custom Domain & DNS Setup", desc: "Setting up A-records, CNAMEs, and configuring automatic HTTPS/SSL encryption certificates." },
+      { step: "05", title: "Health Check & Live Handover", desc: "Verifying live routing, checking network latency, and providing deployment admin credentials." }
+    ],
+    techStack: ["Vercel", "GitHub Actions & CI/CD", "DNS & CNAME Management", "SSL / TLS Encryption", "Environment Secrets", "Vite Production Bundler"],
     deliverables: "Live Production URL, Automated GitHub Actions/Vercel Pipeline, DNS Configuration",
-    turnaround: "1 - 2 Days"
+    deliverablesList: [
+      "Live production website deployed on Vercel with active SSL certificate",
+      "Automated CI/CD deployment pipeline linked to your GitHub repository",
+      "Configured custom domain with DNS A-records and CNAME records",
+      "Encrypted cloud environment variable configuration for API keys & secrets",
+      "Rollback guide and production monitoring setup instructions",
+      "14-day deployment stability warranty"
+    ],
+    turnaround: "1 - 2 Days",
+    serviceFaqs: [
+      { question: "Can you connect my custom domain (e.g. mycompany.com)?", answer: "Yes! I configure your DNS records (A and CNAME) on Namecheap, GoDaddy, Cloudflare, or Google Domains with free automatic SSL." },
+      { question: "How does automated CI/CD work?", answer: "Once linked, every time you push or merge code to your GitHub 'main' branch, Vercel automatically builds and deploys your changes within 60 seconds." },
+      { question: "Will my database credentials and API secrets remain safe?", answer: "Yes, all sensitive credentials are stored securely in encrypted cloud environment variables and never exposed in frontend code." }
+    ]
   }
 ];
 
