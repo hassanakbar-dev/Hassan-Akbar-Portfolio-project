@@ -5,9 +5,10 @@ import {
   FaBug, FaCloudUploadAlt, FaCheckCircle, FaShieldAlt, 
   FaClock, FaSmile, FaArrowRight, FaArrowLeft, FaChevronDown, 
   FaWhatsapp, FaEnvelope, FaCode, FaCheck, FaQuestionCircle,
-  FaLayerGroup
+  FaLayerGroup, FaCalendarAlt
 } from 'react-icons/fa'
 import { servicesData, personalInfo } from '../data/portfolioData'
+import ScheduleMeeting from '../components/ScheduleMeeting'
 
 const iconMap = {
   FaLaptopCode: FaLaptopCode,
@@ -22,6 +23,7 @@ export default function ServiceDetail() {
   const { slug } = useParams()
   const navigate = useNavigate()
   const [openFaq, setOpenFaq] = useState(0)
+  const [isMeetingOpen, setIsMeetingOpen] = useState(false)
 
   // Find service by slug or numeric id
   const service = servicesData.find(
@@ -64,6 +66,16 @@ export default function ServiceDetail() {
   return (
     <div className="pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       
+      {/* Schedule Meeting Modal */}
+      {isMeetingOpen && (
+        <ScheduleMeeting
+          isModal={true}
+          isOpen={true}
+          preselectedService={service.title}
+          onClose={() => setIsMeetingOpen(false)}
+        />
+      )}
+
       {/* ----------------- BREADCRUMB & BACK BUTTON ----------------- */}
       <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-b border-slate-200 dark:border-slate-800/80 pb-4">
         <nav className="flex items-center space-x-2 text-xs text-slate-500 dark:text-slate-400 font-mono">
@@ -150,13 +162,24 @@ export default function ServiceDetail() {
               </div>
             </div>
 
-            <Link
-              to={`/contact?service=${encodeURIComponent(service.title)}`}
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-md shadow-cyan-600/20 transition cursor-pointer"
-            >
-              <span>Book This Service</span>
-              <FaArrowRight className="text-xs" />
-            </Link>
+            <div className="space-y-2 pt-1">
+              <button
+                type="button"
+                onClick={() => setIsMeetingOpen(true)}
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 shadow-md shadow-cyan-600/20 transition cursor-pointer"
+              >
+                <FaCalendarAlt className="text-xs" />
+                <span>Schedule 1-on-1 Meeting</span>
+              </button>
+
+              <Link
+                to={`/contact?service=${encodeURIComponent(service.title)}`}
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 transition"
+              >
+                <span>Request Written Quote</span>
+                <FaArrowRight className="text-[10px]" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -381,11 +404,19 @@ export default function ServiceDetail() {
               Let's discuss requirements, milestones, and deliverables. Get in touch directly with Hassan Akbar.
             </p>
             <div className="space-y-2 pt-2">
+              <button
+                type="button"
+                onClick={() => setIsMeetingOpen(true)}
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-bold text-slate-900 bg-white hover:bg-slate-100 shadow-sm transition cursor-pointer"
+              >
+                <FaCalendarAlt className="text-cyan-600 text-xs" />
+                <span>Schedule Strategy Call</span>
+              </button>
               <Link
                 to={`/contact?service=${encodeURIComponent(service.title)}`}
-                className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-bold text-slate-900 bg-white hover:bg-slate-100 shadow-sm transition"
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold text-white bg-slate-900/60 hover:bg-slate-900/90 border border-white/20 shadow-sm transition"
               >
-                <span>Request Project Consultation</span>
+                <span>Request Written Proposal</span>
                 <FaArrowRight className="text-xs" />
               </Link>
               <a
@@ -402,6 +433,23 @@ export default function ServiceDetail() {
 
         </div>
 
+      </div>
+
+      {/* ----------------- EMBEDDED SCHEDULE MEETING FOR THIS SERVICE ----------------- */}
+      <div className="space-y-4 pt-4">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+            Direct Calendar Booking
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+            Schedule a 1-on-1 Strategy Session
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">
+            Select a date and time slot to discuss requirements, tech stack options, or delivery milestones for {service.title}.
+          </p>
+        </div>
+
+        <ScheduleMeeting preselectedService={service.title} />
       </div>
 
       {/* ----------------- PREV / NEXT NAVIGATION ----------------- */}
