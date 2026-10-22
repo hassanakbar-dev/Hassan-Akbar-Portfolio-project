@@ -1,16 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { FaPaperPlane, FaCheckCircle, FaSpinner } from 'react-icons/fa'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
 export default function ContactForm() {
+  const [searchParams] = useSearchParams()
+  const serviceParam = searchParams.get('service')
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: 'Full-Stack Web App',
+    projectType: serviceParam || 'Full-Stack Web Development',
     budget: '$500 - $1,500',
-    message: ''
+    message: serviceParam ? `Hi Hassan, I'm interested in discussing the "${serviceParam}" service for my project.` : ''
   })
+
+  useEffect(() => {
+    if (serviceParam) {
+      setFormData((prev) => ({
+        ...prev,
+        projectType: serviceParam,
+        message: prev.message || `Hi Hassan, I'm interested in discussing the "${serviceParam}" service for my project.`
+      }))
+    }
+  }, [serviceParam])
   const [status, setStatus] = useState({ loading: false, success: false, error: '' })
 
   const handleChange = (e) => {
@@ -142,11 +156,13 @@ export default function ContactForm() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-slate-900 dark:text-white text-sm transition outline-none cursor-pointer"
               >
-                <option value="Full-Stack Web App">Full-Stack Web App (React & MySQL)</option>
-                <option value="Frontend Development">Frontend & UI/UX (React + Tailwind)</option>
-                <option value="API Development">API Development & Backend</option>
-                <option value="Bug Fixing & Optimization">Speed Optimization & Bug Fix</option>
-                <option value="Full-Time Hiring">Full-Time / Contract Role</option>
+                <option value="Full-Stack Web Development">Full-Stack Web Development (React & MySQL)</option>
+                <option value="Responsive Frontend Engineering">Responsive Frontend Engineering (React + Tailwind)</option>
+                <option value="RESTful API Design & Database Integration">RESTful API Design & Database Integration (Node & MySQL)</option>
+                <option value="Performance Optimization & SEO Audit">Performance Optimization & SEO Audit (90+ Lighthouse)</option>
+                <option value="Bug Fixing, Refactoring & Code Modernization">Bug Fixing, Refactoring & Code Modernization</option>
+                <option value="Cloud Deployment & Continuous Delivery">Cloud Deployment & Continuous Delivery (Vercel CI/CD)</option>
+                <option value="Full-Time Hiring">Full-Time / Contract Developer Role</option>
               </select>
             </div>
             <div>
