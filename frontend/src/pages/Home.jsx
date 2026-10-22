@@ -13,6 +13,7 @@ import {
 } from '../data/portfolioData'
 import ProjectCard from '../components/ProjectCard'
 import FaqAccordion from '../components/FaqAccordion'
+import TypewriterText from '../components/TypewriterText'
 
 /* Floating Doodle Icons matching the reference design */
 function CloudShieldDoodle({ className = '' }) {
@@ -128,7 +129,13 @@ export default function Home() {
             {/* Main Headline & Intro */}
             <div className="space-y-4 max-w-2xl">
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
-                Hi, I'm <span className="text-gradient-cyan">{personalInfo.name}</span>
+                Hi, I'm{' '}
+                <TypewriterText
+                  text={personalInfo.name}
+                  className="text-gradient-cyan"
+                  speed={85}
+                  initialDelay={220}
+                />
                 <br />
                 <span className="text-xl sm:text-3xl lg:text-4xl text-slate-700 dark:text-slate-300 font-bold block mt-2.5">
                   Building Resilient Full-Stack Systems
