@@ -42,17 +42,31 @@ export default function Services() {
               className="glass-card p-8 rounded-3xl flex flex-col justify-between border border-slate-200 dark:border-slate-800"
             >
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-6">
+                <Link to={`/services/${service.slug}`} className="block w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-6 hover:scale-105 transition-transform">
                   <IconComponent className="w-6 h-6" />
-                </div>
+                </Link>
                 
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                  {service.title}
-                </h3>
+                <Link to={`/services/${service.slug}`} className="group/title block mb-2">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover/title:text-cyan-600 dark:group-hover/title:text-cyan-400 transition flex items-center justify-between">
+                    <span>{service.title}</span>
+                    <FaArrowRight className="text-xs opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 text-cyan-600 dark:text-cyan-400 transition-all duration-200" />
+                  </h3>
+                </Link>
                 
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
+                {/* Clickable Description opening dedicated new page */}
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="block group/desc mb-5 p-3 -mx-3 rounded-2xl hover:bg-cyan-50/60 dark:hover:bg-cyan-950/25 transition border border-transparent hover:border-cyan-200 dark:hover:border-cyan-800/50 cursor-pointer"
+                  title="Click to read full description and specifications on a new page"
+                >
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 mt-2 group-hover/desc:underline">
+                    <span>Read Full Description on New Page</span>
+                    <FaArrowRight className="text-[10px] group-hover/desc:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
 
                 <div className="space-y-2.5 pt-2 border-t border-slate-100 dark:border-slate-800/60 mb-6">
                   <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400 uppercase tracking-wider font-semibold block mb-1">
@@ -78,12 +92,18 @@ export default function Services() {
                 </div>
               </div>
 
-              <div className="pt-6">
+              <div className="pt-6 grid grid-cols-2 gap-3">
                 <Link
-                  to="/contact"
-                  className="w-full inline-flex items-center justify-center py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 transition"
+                  to={`/services/${service.slug}`}
+                  className="inline-flex items-center justify-center py-2.5 px-3 rounded-xl text-xs font-bold text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-900/50 border border-cyan-200 dark:border-cyan-800/60 transition text-center"
                 >
-                  Request This Service →
+                  Full Details →
+                </Link>
+                <Link
+                  to={`/contact?service=${encodeURIComponent(service.title)}`}
+                  className="inline-flex items-center justify-center py-2.5 px-3 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 transition text-center"
+                >
+                  Request Quote →
                 </Link>
               </div>
             </div>
