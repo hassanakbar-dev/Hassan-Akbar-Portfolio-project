@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { 
   FaArrowRight, FaRocket, FaLaptopCode, FaCheckCircle, 
-  FaGithub, FaLinkedin, FaFileDownload, FaStar
+  FaGithub, FaLinkedin, FaFileDownload, FaStar,
+  FaPaintBrush, FaServer, FaBug, FaCloudUploadAlt
 } from 'react-icons/fa'
 import { 
   SiReact, SiJavascript, SiTailwindcss, SiNodedotjs, 
@@ -14,6 +15,15 @@ import {
 import ProjectCard from '../components/ProjectCard'
 import FaqAccordion from '../components/FaqAccordion'
 import TypewriterText from '../components/TypewriterText'
+
+const serviceIconMap = {
+  FaLaptopCode: FaLaptopCode,
+  FaPaintBrush: FaPaintBrush,
+  FaServer: FaServer,
+  FaRocket: FaRocket,
+  FaBug: FaBug,
+  FaCloudUploadAlt: FaCloudUploadAlt,
+}
 
 /* Floating Doodle Icons matching the reference design */
 function CloudShieldDoodle({ className = '' }) {
@@ -203,7 +213,7 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
                 className="px-4 py-2 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm transition flex items-center gap-1.5"
-                title="Logistics Live App"
+                title="TechSphere Solutions Live App"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
                 <span>Live App Demo</span>
@@ -353,47 +363,64 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesData.slice(0, 3).map((service) => (
-            <div
-              key={service.id}
-              className="glass-card p-8 rounded-3xl flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-6">
-                  <FaLaptopCode className="w-5 h-5" />
+          {servicesData.slice(0, 3).map((service) => {
+            const ServiceIcon = serviceIconMap[service.icon] || FaLaptopCode
+            return (
+              <div
+                key={service.id}
+                className="glass-card p-8 rounded-3xl flex flex-col justify-between"
+              >
+                <div>
+                  <Link to={`/services/${service.slug}`} className="block w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-6 hover:scale-105 transition-transform">
+                    <ServiceIcon className="w-5 h-5" />
+                  </Link>
+                  
+                  <Link to={`/services/${service.slug}`} className="group/title block mb-2">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover/title:text-cyan-600 dark:group-hover/title:text-cyan-400 transition flex items-center justify-between">
+                      <span>{service.title}</span>
+                      <FaArrowRight className="text-xs opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 text-cyan-600 dark:text-cyan-400 transition-all duration-200" />
+                    </h3>
+                  </Link>
+                  
+                  {/* Clickable Description to new page */}
+                  <Link
+                    to={`/services/${service.slug}`}
+                    className="block group/desc mb-5 p-2.5 -mx-2.5 rounded-xl hover:bg-cyan-50/60 dark:hover:bg-cyan-950/25 transition border border-transparent hover:border-cyan-200 dark:hover:border-cyan-800/50 cursor-pointer"
+                    title="Click to read full description on a new page"
+                  >
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                      {service.description}
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 mt-2 group-hover/desc:underline">
+                      <span>Read Description on New Page</span>
+                      <FaArrowRight className="text-[10px] group-hover/desc:translate-x-1 transition-transform" />
+                    </span>
+                  </Link>
+
+                  <ul className="space-y-2 mb-6">
+                    {service.features.slice(0, 4).map((feat, i) => (
+                      <li key={i} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
+                        <FaCheckCircle className="text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                  {service.title}
-                </h3>
-                
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
 
-                <ul className="space-y-2 mb-6">
-                  {service.features.slice(0, 4).map((feat, i) => (
-                    <li key={i} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                      <FaCheckCircle className="text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between">
+                  <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400 font-semibold">
+                    Delivery: {service.turnaround}
+                  </span>
+                  <Link
+                    to={`/services/${service.slug}`}
+                    className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-1"
+                  >
+                    Full Details <span>→</span>
+                  </Link>
+                </div>
               </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between">
-                <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400 font-semibold">
-                  Delivery: {service.turnaround}
-                </span>
-                <Link
-                  to="/services"
-                  className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-1"
-                >
-                  Details <span>→</span>
-                </Link>
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         <div className="text-center pt-2">
