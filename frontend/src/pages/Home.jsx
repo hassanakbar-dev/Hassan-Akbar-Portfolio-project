@@ -391,40 +391,29 @@ export default function Home() {
                     </h3>
                   </Link>
                   
-                  {/* Clickable Description to new page */}
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="block group/desc mb-5 p-2.5 -mx-2.5 rounded-xl hover:bg-cyan-50/60 dark:hover:bg-cyan-950/25 transition border border-transparent hover:border-cyan-200 dark:hover:border-cyan-800/50 cursor-pointer"
-                    title="Click to read full description on a new page"
-                  >
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                      {service.description}
-                    </p>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 mt-2 group-hover/desc:underline">
-                      <span>Read Description on New Page</span>
-                      <FaArrowRight className="text-[10px] group-hover/desc:translate-x-1 transition-transform" />
-                    </span>
-                  </Link>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2 mb-4">
+                    {service.tagline}
+                  </p>
 
-                  <ul className="space-y-2 mb-6">
-                    {service.features.slice(0, 4).map((feat, i) => (
-                      <li key={i} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                        <FaCheckCircle className="text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
-                        <span>{feat}</span>
-                      </li>
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {service.techStack?.slice(0, 3).map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-200/80 dark:border-slate-700/60"
+                      >
+                        {tech}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between">
-                  <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400 font-semibold">
-                    Delivery: {service.turnaround}
-                  </span>
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800/70">
                   <Link
                     to={`/services/${service.slug}`}
-                    className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 flex items-center gap-1"
+                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-xs font-bold text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-600 hover:text-white dark:hover:bg-cyan-500 dark:hover:text-slate-950 border border-cyan-200 dark:border-cyan-800/60 transition-all duration-200 group/btn"
                   >
-                    Full Details <span>→</span>
+                    <span>View Full Description</span>
+                    <FaArrowRight className="text-[11px] group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
