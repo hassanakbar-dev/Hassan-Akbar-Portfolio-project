@@ -15,12 +15,12 @@ export const personalInfo = {
   socials: {
     github: "https://github.com/hassanakbar-dev",
     linkedin: "https://linkedin.com/in/hassan-akbar-804b54378",
-    portfolio: "https://techsphere-solutions.vercel.app/",
+    portfolio: "https://hassan-akbar-portfolio-project.vercel.app",
     techsphere: "https://techsphere-solutions.vercel.app/",
     healthcare: "https://healthcare-system-eta-liart.vercel.app/",
   },
   resumeUrl: "/Hassan-Akbar-Resume.pdf",
-  aboutBio: `Motivated and detail-oriented Full Stack Developer with hands-on experience building responsive, user-friendly web applications using HTML, CSS, JavaScript, React.js, Node.js, and Express.js. Skilled in developing front-end interfaces and back-end services, designing and integrating MySQL databases, and building RESTful APIs. Completed a 5-month web development internship at Bits Phile (Pvt) and delivered multiple production-ready full stack projects. Passionate about writing clean, efficient, maintainable code, solving technical problems, and continuously learning modern web technologies.`,
+  aboutBio: `Full Stack Developer with a BSCS degree and a 5-month web development internship, experienced in building responsive web applications with React.js, Tailwind CSS, Node.js, Express.js, and MySQL. Delivered five full stack and front-end projects, four of them deployed live on Vercel, including a Logistics Management System, a Healthcare System, a TechSphere Solutions website, and a personal portfolio. Strong in RESTful API development, database design, CRUD operations, authentication, Git, and debugging. Seeking a Junior Full Stack Developer, React Developer, or Web Developer role.`,
   shortBio: `Full Stack Developer specializing in React.js, Node.js, Express.js, MySQL, and Tailwind CSS. Built full-stack solutions with responsive UI, robust REST APIs, and automated cloud deployments.`
 };
 
@@ -174,6 +174,23 @@ export const experienceData = [
 ];
 
 export const projectsData = [
+  {
+    id: 0,
+    title: "Portfolio Website (Full Stack)",
+    category: "Full-Stack",
+    description: "A full-stack personal portfolio web application to showcase production projects, technical skills, verified certifications, interactive contact workflows, and downloadable CV.",
+    bullets: [
+      "Developed a full stack personal portfolio web application to showcase projects, skills, and contact details.",
+      "Built a responsive interface with React.js and Tailwind CSS, with Node.js, Express.js, and MySQL on the back end.",
+      "Hosted the source code on GitHub and deployed the application on Vercel."
+    ],
+    tags: ["React.js", "Tailwind CSS", "JavaScript", "Node.js", "Express.js", "MySQL", "Vercel"],
+    liveDemo: "https://hassan-akbar-portfolio-project.vercel.app",
+    github: "https://github.com/hassanakbar-dev/Hassan-Akbar-Portfolio-project",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    metrics: "100% Responsive • Full-Stack Deployed"
+  },
   {
     id: 1,
     title: "Logistics Management System",
