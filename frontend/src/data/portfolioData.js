@@ -230,23 +230,6 @@ export const projectsData = [
     metrics: "98 Lighthouse Score • Production Deployed"
   },
   {
-    id: 0,
-    title: "Portfolio Website (Full Stack)",
-    category: "Full-Stack",
-    description: "A full-stack personal portfolio web application to showcase production projects, technical skills, verified certifications, interactive contact workflows, and downloadable CV.",
-    bullets: [
-      "Developed a full stack personal portfolio web application to showcase projects, skills, and contact details.",
-      "Built a responsive interface with React.js and Tailwind CSS, with Node.js, Express.js, and MySQL on the back end.",
-      "Hosted the source code on GitHub and deployed the application on Vercel."
-    ],
-    tags: ["React.js", "Tailwind CSS", "JavaScript", "Node.js", "Express.js", "MySQL", "Vercel"],
-    liveDemo: "https://hassan-akbar-portfolio-project.vercel.app",
-    github: "https://github.com/hassanakbar-dev/Hassan-Akbar-Portfolio-project",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    metrics: "100% Responsive • Full-Stack Deployed"
-  },
-  {
     id: 4,
     title: "TaskFlow - Kanban & Agile Sprint Manager",
     category: "Web Apps",
