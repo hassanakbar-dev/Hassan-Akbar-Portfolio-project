@@ -175,21 +175,22 @@ export const experienceData = [
 
 export const projectsData = [
   {
-    id: 0,
-    title: "Portfolio Website (Full Stack)",
+    id: 3,
+    title: "Healthcare Management System",
     category: "Full-Stack",
-    description: "A full-stack personal portfolio web application to showcase production projects, technical skills, verified certifications, interactive contact workflows, and downloadable CV.",
+    description: "A centralized clinic and healthcare management application built to manage patient records, appointment bookings, doctor availability timetables, and medical visit histories.",
     bullets: [
-      "Developed a full stack personal portfolio web application to showcase projects, skills, and contact details.",
-      "Built a responsive interface with React.js and Tailwind CSS, with Node.js, Express.js, and MySQL on the back end.",
-      "Hosted the source code on GitHub and deployed the application on Vercel."
+      "Developed full-stack clinic software streamlining doctor scheduling and patient appointment registrations.",
+      "Engineered REST APIs with Express.js ensuring secure record creation, date slot reservation, and appointment cancellation workflows.",
+      "Modeled relational MySQL schemas with foreign keys linking doctors, patients, departments, and medical records.",
+      "Designed clean, accessible UI with Tailwind CSS tailored for both front-desk reception staff and doctors on mobile tablets."
     ],
-    tags: ["React.js", "Tailwind CSS", "JavaScript", "Node.js", "Express.js", "MySQL", "Vercel"],
-    liveDemo: "https://hassan-akbar-portfolio-project.vercel.app",
-    github: "https://github.com/hassanakbar-dev/Hassan-Akbar-Portfolio-project",
+    tags: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MySQL", "CRUD System"],
+    liveDemo: "https://healthcare-system-eta-liart.vercel.app/",
+    github: "https://github.com/hassanakbar-dev/healthcare-system",
     featured: true,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    metrics: "100% Responsive • Full-Stack Deployed"
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    metrics: "Zero Booking Collisions • Full CRUD"
   },
   {
     id: 1,
@@ -229,22 +230,21 @@ export const projectsData = [
     metrics: "98 Lighthouse Score • Production Deployed"
   },
   {
-    id: 3,
-    title: "Healthcare Management System",
+    id: 0,
+    title: "Portfolio Website (Full Stack)",
     category: "Full-Stack",
-    description: "A centralized clinic and healthcare management application built to manage patient records, appointment bookings, doctor availability timetables, and medical visit histories.",
+    description: "A full-stack personal portfolio web application to showcase production projects, technical skills, verified certifications, interactive contact workflows, and downloadable CV.",
     bullets: [
-      "Developed full-stack clinic software streamlining doctor scheduling and patient appointment registrations.",
-      "Engineered REST APIs with Express.js ensuring secure record creation, date slot reservation, and appointment cancellation workflows.",
-      "Modeled relational MySQL schemas with foreign keys linking doctors, patients, departments, and medical records.",
-      "Designed clean, accessible UI with Tailwind CSS tailored for both front-desk reception staff and doctors on mobile tablets."
+      "Developed a full stack personal portfolio web application to showcase projects, skills, and contact details.",
+      "Built a responsive interface with React.js and Tailwind CSS, with Node.js, Express.js, and MySQL on the back end.",
+      "Hosted the source code on GitHub and deployed the application on Vercel."
     ],
-    tags: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MySQL", "CRUD System"],
-    liveDemo: "https://healthcare-system-eta-liart.vercel.app/",
-    github: "https://github.com/hassanakbar-dev/healthcare-system",
+    tags: ["React.js", "Tailwind CSS", "JavaScript", "Node.js", "Express.js", "MySQL", "Vercel"],
+    liveDemo: "https://hassan-akbar-portfolio-project.vercel.app",
+    github: "https://github.com/hassanakbar-dev/Hassan-Akbar-Portfolio-project",
     featured: true,
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
-    metrics: "Zero Booking Collisions • Full CRUD"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    metrics: "100% Responsive • Full-Stack Deployed"
   },
   {
     id: 4,
