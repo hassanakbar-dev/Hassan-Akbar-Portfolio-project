@@ -363,21 +363,29 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesData.slice(0, 3).map((service) => {
             const ServiceIcon = serviceIconMap[service.icon] || FaLaptopCode
             return (
               <div
                 key={service.id}
-                className="glass-card p-8 rounded-3xl flex flex-col justify-between"
+                className="glass-card p-6 rounded-2xl flex flex-col justify-between hover:border-cyan-500/40 hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300 group"
               >
                 <div>
-                  <Link to={`/services/${service.slug}`} className="block w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-6 hover:scale-105 transition-transform">
-                    <ServiceIcon className="w-5 h-5" />
-                  </Link>
-                  
-                  <Link to={`/services/${service.slug}`} className="group/title block mb-2">
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover/title:text-cyan-600 dark:group-hover/title:text-cyan-400 transition flex items-center justify-between">
+                  <div className="flex items-center justify-between mb-4">
+                    <Link
+                      to={`/services/${service.slug}`}
+                      className="w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center group-hover:scale-105 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300"
+                    >
+                      <ServiceIcon className="w-5 h-5" />
+                    </Link>
+                    <span className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">
+                      {service.turnaround}
+                    </span>
+                  </div>
+
+                  <Link to={`/services/${service.slug}`} className="block group/title mb-2">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover/title:text-cyan-600 dark:group-hover/title:text-cyan-400 transition-colors flex items-center justify-between">
                       <span>{service.title}</span>
                       <FaArrowRight className="text-xs opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 text-cyan-600 dark:text-cyan-400 transition-all duration-200" />
                     </h3>
