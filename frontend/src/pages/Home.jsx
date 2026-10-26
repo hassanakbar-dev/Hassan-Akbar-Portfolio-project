@@ -3,11 +3,12 @@ import {
   FaArrowRight, FaRocket, FaLaptopCode, FaCheckCircle, 
   FaGithub, FaLinkedin, FaFileDownload, FaStar,
   FaPaintBrush, FaServer, FaBug, FaCloudUploadAlt,
-  FaCalendarAlt
+  FaCalendarAlt, FaBroadcastTower
 } from 'react-icons/fa'
 import { 
   SiReact, SiJavascript, SiTailwindcss, SiNodedotjs, 
-  SiExpress, SiMysql, SiVercel, SiGit 
+  SiExpress, SiMysql, SiVercel, SiGit,
+  SiNextdotjs, SiBootstrap, SiVite, SiPostgresql, SiSupabase
 } from 'react-icons/si'
 import { 
   personalInfo, statsData, projectsData, servicesData, 
@@ -85,13 +86,19 @@ function CodeSparkleDoodle({ className = '' }) {
 }
 
 const techBadges = [
+  { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-500 dark:text-yellow-400', role: 'ES6+ Logic' },
   { name: 'React.js', icon: SiReact, color: 'text-cyan-600 dark:text-cyan-400', role: 'Frontend UI' },
-  { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-600 dark:text-yellow-400', role: 'ES6+ Logic' },
+  { name: 'Next.js', icon: SiNextdotjs, color: 'text-slate-900 dark:text-white', role: 'Full-Stack SSR' },
   { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-sky-600 dark:text-sky-400', role: 'Modern Styling' },
+  { name: 'Bootstrap', icon: SiBootstrap, color: 'text-purple-600 dark:text-purple-400', role: 'Responsive UI' },
   { name: 'Node.js', icon: SiNodedotjs, color: 'text-emerald-600 dark:text-emerald-400', role: 'Backend Runtime' },
   { name: 'Express.js', icon: SiExpress, color: 'text-slate-700 dark:text-slate-300', role: 'REST APIs' },
-  { name: 'MySQL', icon: SiMysql, color: 'text-blue-600 dark:text-blue-400', role: 'Relational DB' },
+  { name: 'MySQL', icon: SiMysql, color: 'text-blue-600 dark:text-blue-400', role: 'Super Database' },
+  { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-sky-700 dark:text-sky-400', role: 'Relational DB' },
+  { name: 'Supabase', icon: SiSupabase, color: 'text-emerald-500 dark:text-emerald-400', role: 'Cloud Database' },
   { name: 'Vercel', icon: SiVercel, color: 'text-slate-900 dark:text-white', role: 'Cloud Deploy' },
+  { name: 'Live Server', icon: FaBroadcastTower, color: 'text-amber-500 dark:text-amber-400', role: 'Local Dev Server' },
+  { name: 'Vite', icon: SiVite, color: 'text-violet-600 dark:text-violet-400', role: 'Fast Build Tool' },
   { name: 'Git & GitHub', icon: SiGit, color: 'text-orange-600 dark:text-orange-500', role: 'Version Control' },
 ]
 
@@ -210,14 +217,17 @@ export default function Home() {
                 <FaLinkedin className="w-5 h-5" />
               </a>
               <a
-                href={personalInfo.socials.portfolio}
+                href={personalInfo.socials.techsphere}
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm transition flex items-center gap-1.5"
+                className="px-4 py-2 rounded-full bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 shadow-sm transition flex items-center gap-2 group"
                 title="TechSphere Solutions Live App"
               >
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                <span>Live App Demo</span>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>TechSphere Demo</span>
               </a>
             </div>
 
@@ -295,7 +305,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3.5 sm:gap-4">
           {techBadges.map((tech) => {
             const Icon = tech.icon
             return (
