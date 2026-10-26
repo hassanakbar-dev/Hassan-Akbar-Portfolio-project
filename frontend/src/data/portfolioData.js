@@ -38,11 +38,13 @@ export const skillsData = [
     category: "Frontend Development",
     description: "Modern, component-driven client-side engineering with semantic HTML and high-performance React",
     skills: [
-      { name: "HTML5 & Semantic Markup", level: "98%" },
-      { name: "CSS3 & Modern Styling", level: "96%" },
       { name: "JavaScript (ES6+)", level: "94%" },
       { name: "React.js (v18/v19)", level: "95%" },
+      { name: "Next.js (App Router / SSR)", level: "90%" },
       { name: "Tailwind CSS (v3/v4)", level: "96%" },
+      { name: "Bootstrap 5 & UI Kits", level: "92%" },
+      { name: "HTML5 & Semantic Markup", level: "98%" },
+      { name: "CSS3 & Modern Styling", level: "96%" },
       { name: "Responsive Web Design", level: "98%" },
       { name: "Component-Based Architecture", level: "95%" },
       { name: "DOM Manipulation & Events", level: "94%" },
@@ -64,9 +66,11 @@ export const skillsData = [
   },
   {
     category: "Databases & Data Modeling",
-    description: "Relational database modeling, query optimization, data normalization, and integrity",
+    description: "Relational, cloud, and real-time database architecture, schema design, and query optimization",
     skills: [
-      { name: "MySQL Relational Database", level: "92%" },
+      { name: "MySQL (Super Database)", level: "94%" },
+      { name: "PostgreSQL Database", level: "91%" },
+      { name: "Supabase Cloud Database", level: "90%" },
       { name: "XAMPP Local Server Environment", level: "94%" },
       { name: "Complex SQL Queries & Joins", level: "90%" },
       { name: "Database Schema Design & ERD", level: "91%" },
@@ -93,7 +97,7 @@ export const skillsData = [
       { name: "Git Version Control", level: "94%" },
       { name: "GitHub Collaboration & PRs", level: "92%" },
       { name: "Vercel Cloud Deployment", level: "95%" },
-      { name: "VS Code & Debugging Extensions", level: "96%" },
+      { name: "VS Code & Live Server", level: "96%" },
       { name: "Postman API Testing", level: "92%" },
       { name: "npm / Yarn Package Managers", level: "94%" },
     ]
