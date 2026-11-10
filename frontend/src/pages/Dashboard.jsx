@@ -228,7 +228,7 @@ export default function Dashboard() {
             Admin Login Required
           </h1>
           <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Yeh section sirf authenticated user/admin ke liye hai. Dashboard open karne ke liye pehle Login karein.
+            This section is restricted to authenticated administrators. Please log in to access the dashboard.
           </p>
         </div>
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
